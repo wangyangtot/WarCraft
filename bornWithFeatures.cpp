@@ -25,8 +25,8 @@ protected:
 public:
     warrior():num(0),strengthLeft(0),consume(0),morale(0),loyalty(0){};
     warrior(int n,int sleft,int consu):num(n),strengthLeft(sleft),consume(consu),morale(0),loyalty(0){};
-    virtual void feature()=0;
-    virtual void showname()=0;
+    virtual void feature(){};
+    virtual void showname(){cout<<"wolf";};
     inline int shownum(){return num;}
 };
 class dragon: public warrior {
@@ -76,13 +76,13 @@ public:
 void lion::feature() {cout<<"It’s loyalty is "<<loyalty<<endl;}
 
 
-class wolf:public warrior{
+/*class wolf:public warrior{
     string wname="wolf";
 public:wolf(int n, int sleft,int consu):warrior(n,sleft,consu){};
     void showname(){cout<<wname;}
     void feature();
 };
-void wolf::feature() {};
+void wolf::feature() {};*/
 
 
 class headquarter {
@@ -110,7 +110,7 @@ void headquarter::born_success(){
     if (tem=="dragon"){p=new dragon(Num,strength,Warrior_consume[(sequence[position])]); }
         else if(tem=="ninjia") {p=new ninjia(Num,strength,Warrior_consume[(sequence[position])]); }
    else if (tem=="iceman") {p= new iceman (Num,strength,Warrior_consume[(sequence[position])]); }
-        else if(tem=="wolf"){p=new wolf(Num,strength,Warrior_consume[(sequence[position])]);}
+        else if(tem=="wolf"){p=new warrior(Num,strength,Warrior_consume[(sequence[position])]);}
         else {p=new lion (Num,strength,Warrior_consume[(sequence[position])]); }
         warriors.push_back(p);
         //p->feature();
